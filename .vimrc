@@ -229,18 +229,22 @@ elseif MySys() == "linux"
     set shell=/bin/bash
 endif
 
-if has("gui_running")
-    set guioptions-=T
-    set t_Co=256
-    set background=dark
-    colorscheme molokai
-    set nu
-else
-    set t_Co=256
-    set background=dark
-    colorscheme molokai
-    set nu
-endif
+try
+    if has("gui_running")
+        set guioptions-=T
+        set t_Co=256
+        set background=dark
+        colorscheme molokai
+        set nu
+    else
+        set t_Co=256
+        set background=dark
+        colorscheme molokai
+        set nu
+    endif
+catch /^Vim\%((\a\+)\)\=:E185/
+    " deal with it
+endtry
 
 set encoding=utf8
 try
