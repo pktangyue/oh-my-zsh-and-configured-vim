@@ -8,7 +8,8 @@ MAINTAINER pktangyue <tangyue1004@gmail.com>
 ENV HOME /root
 
 # Install needed package
-RUN yum update -y && yum install -y git zsh gcc make ruby ruby-devel lua lua-devel luajit luajit-devel ctags ncurses-devel perl perl-devel perl-ExtUtils-ParseXS perl-ExtUtils-XSpp perl-ExtUtils-CBuilder perl-ExtUtils-Embed
+RUN rpm -Uvh http://download.fedoraproject.org/pub/epel/7/x86_64/e/epel-release-7-5.noarch.rpm
+RUN yum update -y && yum install -y git zsh gcc make ruby ruby-devel lua lua-devel luajit luajit-devel ctags ncurses-devel perl perl-devel perl-ExtUtils-ParseXS perl-ExtUtils-XSpp perl-ExtUtils-CBuilder perl-ExtUtils-Embed the_silver_searcher
 
 # Install oh-my-zsh
 RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
